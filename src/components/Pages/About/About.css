@@ -1,0 +1,54 @@
+.about {
+	background-color: #fff;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 1.25rem 5rem 2.5rem 5rem;
+	min-height: 22rem;
+    margin-top: 5rem;
+	margin-bottom: -1rem;
+	grid-gap: 25vw;
+}
+
+
+.about-text > h1 {
+	font-size: 3rem;
+	margin-top: 0rem;
+	margin-bottom: -3rem;
+}
+.about-text > h2 {
+	font-size: 1.5rem;
+	margin-top: 3rem;
+}
+
+.about-subtext {
+	margin-top: -1.5rem;
+    margin-top: 3rem;
+}
+
+.about-image {
+	max-height: 18rem;
+	position: relative;
+	top: 1rem;
+	right: 3rem;
+    z-index: 1
+    
+}
+
+.about-image > img {
+	width: 60%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.bar {
+	position: relative;
+	top: 0;
+	left: 0;
+    z-index: 1
+}
+
+.chef {
+	position: absolute;
+	top: -4.5rem;
+	left: 12rem;
+}

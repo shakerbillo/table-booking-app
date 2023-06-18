@@ -1,0 +1,58 @@
+.hero-container {
+	font-family: 'Markazi Text', 'Karla', serif;
+    background-color: #495e57;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.25rem 5rem 0 10rem;
+    margin-top: -1.4rem;
+}
+
+.text-container {
+	
+	width: 50%;
+	padding: 2rem;
+}
+
+.text-container > h1 {
+	color: #f4ce14;
+    font-size: 3rem;
+    margin-top: 0rem;
+    margin-bottom: -3rem;
+}
+.text-container > h2 {
+	font-size: 2.5rem;
+	margin-top: 3rem;
+}
+
+.text-container p {
+	margin-top: -2rem;
+    margin-top: 1rem;
+}
+
+.action-button {
+	background-color: #f4ce14;
+	text-decoration: none;
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	border-radius: 16rem;
+	font-family: 'Karla';
+	font-size: 2rem;
+    
+}
+
+.action-button:hover {
+	background-color: #495e57;
+	color: #eeeeee;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #edefee;
+	transition: 0.2s;
+}
+
+.hero-img > img {
+	width: 350px;
+	height: 350px;
+	border-radius: 20px;
+	padding: 10px;
+	margin: 20px;
+}
