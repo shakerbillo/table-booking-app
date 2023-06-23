@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import chef from '../../../assets/images/Mario and Adrian A.jpg';
 import bar from '../../../assets/images/bar.jpg';
 import './About.css';

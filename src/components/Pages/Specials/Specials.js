@@ -10,7 +10,7 @@ const Specials = () => {
 		<div className="specials">
 			<div className="specials-topbar flex-container">
 				<h1>This Week's special</h1>
-				<Link className="action-button order-delivery-link" to="/orders">
+				<Link className="action-button order-delivery-link" to="/order">
 					Order Delivery
 				</Link>
 			</div>
@@ -25,7 +25,7 @@ const Specials = () => {
 						Chicago style feta cheese, garnished with crunchy garlic and
 						rosemary croutons.
 					</p>
-					<Link className="special-button" to="/orders">
+					<Link className="special-button" to="/order">
 						Order Delivery
 					</Link>
 				</div>
@@ -39,7 +39,7 @@ const Specials = () => {
 						smeared with garlic and seasoned with salt and olive oil. Topped
 						with fresh vegetables.
 					</p>
-					<Link className="special-button" to="/orders">
+					<Link className="special-button" to="/order">
 						Order Delivery
 					</Link>
 				</div>
@@ -52,7 +52,7 @@ const Specials = () => {
 						This comes straight from grandma’s recipe book, every last
 						ingredient has been sourced and is as authentic as can be imagined.
 					</p>
-					<Link className="special-button" to="/orders">
+					<Link className="special-button" to="/order">
 						Order Delivery
 					</Link>
 				</div>
