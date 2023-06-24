@@ -31,7 +31,7 @@ const Footer = () => {
 				<Link to="/login" className="footer-links" >Login</Link>
 			</div>
 			<div className="contact-info">
-				<p>123 Ceska Street, City, Czech Republic</p>
+				<p>123 Ceska Street, Brno, Czech Republic</p>
 				<p>Phone: 123-456-7890</p>
 				<p>Email: info@example.com</p>
 			</div>

@@ -1,17 +1,7 @@
 import React, { useState } from 'react';
 import './BookingForm.css';
 
-const BookingForm = () => {
-	const [availableTimes] = useState([
-		'17:00',
-		'18:00',
-		'19:00',
-		'20:00',
-		'21:00',
-		'22:00',
-		'23:00',
-		'24:00',
-	]);
+const BookingForm = ({ availableTimes, updateTimes }) => {
 	const [formInput, setFormInput] = useState({
 		date: '',
 		time: availableTimes[0],
@@ -19,8 +9,12 @@ const BookingForm = () => {
 		occasion: 'Birthday',
 	});
 
+	const [error, setError] = useState('');
+
 	const handleDateChange = (event) => {
-		setFormInput({ ...formInput, date: event.target.value });
+		const selectedDate = event.target.value;
+		setFormInput({ ...formInput, date: selectedDate });
+		updateTimes(selectedDate);
 	};
 	const handleTimeChange = (event) => {
 		setFormInput({ ...formInput, time: event.target.value });
@@ -32,13 +26,32 @@ const BookingForm = () => {
 		setFormInput({ ...formInput, occasion: event.target.value });
 	};
 
+	// Perform form validation
+	const handleError = () => {
+		if (!formInput.date) {
+			setError('Please select a date.');
+			return;
+		}
+
+		if (parseInt(formInput.guests) <= 0) {
+			setError('Number of guests must be greater than 0.');
+			return;
+		}
+
+
+		// Reset error state if there are no validation errors
+		setError('');
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
+		handleError();
 	};
 
 	return (
-		<div>
-			<form
+		<div className='form-container'>
+			<form className='form-field '
 				onSubmit={handleSubmit}
 				style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
 			>
@@ -78,7 +91,8 @@ const BookingForm = () => {
 					<option>Birthday</option>
 					<option>Anniversary</option>
 				</select>
-				<input type="submit" value="Make Your reservation" />
+				{error && <p className="error-message">{error}</p>}
+				<input className='submit-button' type="submit" value="Make Your reservation" />
 			</form>
 		</div>
 	);
