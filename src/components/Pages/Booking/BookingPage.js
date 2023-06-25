@@ -1,7 +1,7 @@
-import React from 'react';
 import './BookingPage.css';
 import BookingForm from './BookingForm';
 import { useReducer } from 'react';
+import { fetchAPI } from '../../../bookingAPI';
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -14,27 +14,22 @@ const reducer = (state, action) => {
 
 const BookingPage = () => {
 	const initializeTimes = () => {
-		return [
-			'17:00',
-			'18:00',
-			'19:00',
-			'20:00',
-			'21:00',
-			'22:00',
-			'23:00',
-			'24:00',
-		];
+		const today = new Date();
+		const availableTimes = fetchAPI(today);
+		// console.log(availableTimes);
+		return availableTimes;
 	};
 	const initialAvailableTimes = initializeTimes();
 
 	const [availableTimes, dispatch] = useReducer(reducer, initialAvailableTimes);
 
 	const updateTimes = (selectedDate) => {
-		const updatedTimes = [...initialAvailableTimes];
-
-		// Dispatch the action to update the availableTimes state
+		// Call the fetchAPI function to get the available times for the selected date
+		const updatedTimes = fetchAPI(selectedDate);
 		dispatch({ type: 'UPDATE_AVAILABLE_TIMES', payload: updatedTimes });
+		// Handle any errors that occur during the API call
 	};
+
 	return (
 		<div>
 			<BookingForm availableTimes={availableTimes} updateTimes={updateTimes} />

@@ -38,7 +38,6 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
 			return;
 		}
 
-
 		// Reset error state if there are no validation errors
 		setError('');
 	};
@@ -50,49 +49,62 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
 	};
 
 	return (
-		<div className='form-container'>
-			<form className='form-field '
+		<div className="form-container">
+			<form
 				onSubmit={handleSubmit}
 				style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
 			>
-				<label htmlFor="res-date">Choose date</label>
-				<input
-					type="date"
-					id="res-date"
-					value={formInput.date}
-					onChange={handleDateChange}
-				/>
-				<label htmlFor="res-time">Choose time</label>
-				<select
-					id="res-time "
-					value={formInput.time}
-					onChange={handleTimeChange}
-				>
-					{availableTimes.map((time) => (
-						<option key={time}>{time}</option>
-					))}
-				</select>
-				<label htmlFor="guests">Number of guests</label>
-				<input
-					type="number"
-					placeholder="1"
-					min="1"
-					max="10"
-					id="guests"
-					value={formInput.guests}
-					onChange={handleGuestsChange}
-				/>
-				<label htmlFor="occasion">Occasion</label>
-				<select
-					id="occasion"
-					value={formInput.occasion}
-					onChange={handleOccasionChange}
-				>
-					<option>Birthday</option>
-					<option>Anniversary</option>
-				</select>
+				<div className="form-field">
+					<label htmlFor="res-date">Choose date</label>
+					<input
+						type="date"
+						id="res-date"
+						value={formInput.date}
+						onChange={handleDateChange}
+					/>
+				</div>
+
+				<div className="form-field">
+					<label htmlFor="res-time">Choose time</label>
+					<select
+							id="res-time"
+                            value={formInput.time}
+                            onChange={handleTimeChange}
+					>
+						{availableTimes.map((time) => (
+							<option key={time}>{time}</option>
+						))}
+					</select>
+				</div>
+				<div className="form-field">
+					<label htmlFor="guests">Number of guests</label>
+					<input
+						type="number"
+						placeholder="1"
+						min="1"
+						max="10"
+						id="guests"
+						value={formInput.guests}
+						onChange={handleGuestsChange}
+					/>
+				</div>
+				<div className="form-field">
+					<label htmlFor="occasion">Occasion</label>
+					<select
+						id="occasion"
+						value={formInput.occasion}
+						onChange={handleOccasionChange}
+					>
+						<option>Birthday</option>
+						<option>Anniversary</option>
+					</select>
+				</div>
 				{error && <p className="error-message">{error}</p>}
-				<input className='submit-button' type="submit" value="Make Your reservation" />
+				<input
+					className="submit-button"
+					type="submit"
+					value="Submit"
+				/>
 			</form>
 		</div>
 	);
