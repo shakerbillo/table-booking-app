@@ -1,5 +1,5 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Homepage from './Pages/Home/Homepage';
 import About from './Pages/About/About';
 import BookingPage from './Pages/Booking/BookingPage';
@@ -7,20 +7,22 @@ import Menu from './Pages/Menu/Menu';
 import Login from './Pages/Login/Login';
 
 import Order from './Pages/Order/Order';
+import ConfirmedBooking from './Pages/Booking/ConfirmedBooking';
 
 const Routing = () => {
-  return (
-    <div>
-        <Routes>
+	return (
+		<div>
+			<Routes>
 				<Route path="/" element={<Homepage />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/menu" element={<Menu />} />
 				<Route path="/reservation" element={<BookingPage />} />
 				<Route path="/order" element={<Order />} />
-				<Route path="/login" element={<Login/>} />
+				<Route path="/login" element={<Login />} />
+				<Route path="confirmation" element={<ConfirmedBooking />} />
 			</Routes>
-    </div>
-  )
-}
+		</div>
+	);
+};
 
-export default Routing
+export default Routing;

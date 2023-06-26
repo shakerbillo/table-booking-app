@@ -4,17 +4,17 @@
 	grid-template-columns: 1fr 1fr;
 	padding: 1.25rem 5rem 2.5rem 5rem;
 	min-height: 22rem;
-    margin-top: 5rem;
+	margin-top: 5rem;
 	margin-bottom: -1rem;
 	grid-gap: 25vw;
 }
-
 
 .about-text > h1 {
 	font-size: 3rem;
 	margin-top: 0rem;
 	margin-bottom: -3rem;
 }
+
 .about-text > h2 {
 	font-size: 1.5rem;
 	margin-top: 3rem;
@@ -22,7 +22,7 @@
 
 .about-subtext {
 	margin-top: -1.5rem;
-    margin-top: 3rem;
+	margin-top: 3rem;
 }
 
 .about-image {
@@ -30,8 +30,7 @@
 	position: relative;
 	top: 1rem;
 	right: 3rem;
-    z-index: 1
-    
+	z-index: 1;
 }
 
 .about-image > img {
@@ -44,11 +43,75 @@
 	position: relative;
 	top: 0;
 	left: 0;
-    z-index: 1
+	z-index: 1;
 }
 
 .chef {
 	position: absolute;
 	top: -4.5rem;
 	left: 12rem;
+}
+
+/* Media Queries */
+
+/* For devices with a maximum width of 768px */
+@media only screen and (max-width: 768px) {
+	.about {
+		padding: 1.25rem 2rem 2.5rem 2rem;
+		grid-gap: 5vw;
+	}
+
+	.about-text > h1 {
+		font-size: 2.5rem;
+	}
+
+	.about-text > h2 {
+		font-size: 1.2rem;
+		margin-top: 2rem;
+	}
+
+	.about-image {
+		max-height: 12rem;
+		top: 0;
+		right: 0;
+	}
+
+	.about-image > img {
+		width: 100%;
+	}
+}
+
+/* For devices with a maximum width of 480px */
+@media only screen and (max-width: 480px) {
+	.about {
+		padding: 1rem;
+		grid-template-columns: 1fr;
+		grid-gap: 2.5vw;
+	}
+
+	.about-text > h1 {
+		font-size: 2rem;
+		margin-bottom: -2rem;
+	}
+
+	.about-text > h2 {
+		font-size: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.about-image {
+		max-height: 10rem;
+		top: 0;
+		right: 0;
+	}
+
+	.about-image > img {
+		width: 100%;
+	}
+
+	.chef {
+		position: static;
+		margin-top: 1rem;
+		text-align: center;
+	}
 }

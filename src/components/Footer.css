@@ -7,7 +7,7 @@
 	flex-wrap: wrap; /* Add this line to allow wrapping */
 }
 
-.footer-logo  {
+.footer-logo {
 	display: flex;
 	height: 200px;
 	position: relative;
@@ -26,14 +26,10 @@
 	text-decoration: none;
 }
 
-
-
 .contact-info {
 	margin-bottom: 5px;
 	color: #fff;
 }
-
-
 
 .social-media a {
 	display: block;
@@ -44,3 +40,46 @@
 	color: #fff;
 }
 
+/* Media Queries */
+
+/* Small devices (e.g., smartphones) */
+@media only screen and (max-width: 576px) {
+	.footer-logo {
+		height: 100px; /* Adjust the height for small devices */
+	}
+	.footer-links {
+		margin: 10px 0; /* Add margin to create space between links */
+	}
+	.social-media a {
+		margin: 5px 0; /* Add margin to create space between social media icons */
+	}
+}
+
+/* Medium devices (e.g., tablets) */
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+	.footer-logo {
+		height: 150px; /* Adjust the height for medium devices */
+	}
+	.footer-links {
+		margin: 10px;
+		font-size: 14px; 
+	}
+	.social-media a {
+		margin: 5px; /* Add margin to create space between social media icons */
+	}
+}
+
+/* Large devices (e.g., desktops) */
+@media only screen and (min-width: 993px) {
+	.footer-logo {
+		height: 200px;
+		margin-top: 0.5rem;
+	}
+	.footer-links {
+		margin: 0 10px; 
+		font-size: 14px;
+	}
+	.social-media a {
+		margin: 10px; 
+	}
+}

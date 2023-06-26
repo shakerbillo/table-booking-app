@@ -2,6 +2,7 @@
 	background-color: #495e57;
 	padding: 20px;
 }
+
 .testimonial-heading {
 	color: #f4ce14;
 	text-align: center;
@@ -40,4 +41,51 @@
 .testimonial h3,
 .testimonial p {
 	margin: 10px 0;
+}
+
+/* Media Queries */
+
+/* Small devices (up to 576px) */
+@media (max-width: 576px) {
+	.testimonial-container {
+		padding: 10px;
+	}
+
+	.rating {
+		gap: 5rem;
+	}
+}
+
+/* Medium devices (between 576px and 992px) */
+@media (min-width: 577px) and (max-width: 992px) {
+	.rating {
+		gap: 8rem;
+	}
+
+	.testimonial img {
+		width: 80px;
+		height: 80px;
+	}
+
+	.testimonial h3,
+	.testimonial p {
+		font-size: 14px;
+	}
+}
+
+/* Large devices (above 992px) */
+@media (min-width: 993px) {
+	.rating {
+		gap: 10rem;
+	}
+
+	.testimonial img {
+		width: 120px;
+		height: 120px;
+	}
+
+	.testimonial h3,
+	.testimonial p {
+		font-size: 18px;
+	}
 }

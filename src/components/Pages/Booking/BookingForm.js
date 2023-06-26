@@ -1,15 +1,37 @@
 import React, { useState } from 'react';
 import './BookingForm.css';
+import { submitAPI } from '../../../bookingAPI';
+import { useNavigate } from 'react-router-dom';
 
 const BookingForm = ({ availableTimes, updateTimes }) => {
 	const [formInput, setFormInput] = useState({
+		name: '',
+		email: '',
+		number: '',
 		date: '',
 		time: availableTimes[0],
 		guests: '1',
 		occasion: 'Birthday',
+		comments: '',
 	});
-
 	const [error, setError] = useState('');
+	const navigate = useNavigate();
+
+	const handleNameChange = (event) => {
+		setFormInput({ ...formInput, name: event.target.value });
+	};
+
+	const handleEmailChange = (event) => {
+		setFormInput({ ...formInput, email: event.target.value });
+	};
+
+	const handleNumberChange = (event) => {
+		setFormInput({ ...formInput, number: event.target.value });
+	};
+
+	const handleCommentsChange = (event) => {
+		setFormInput({ ...formInput, comments: event.target.value });
+	};
 
 	const handleDateChange = (event) => {
 		const selectedDate = event.target.value;
@@ -27,33 +49,91 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
 	};
 
 	// Perform form validation
-	const handleError = () => {
+	const validateForm = () => {
+		let hasError = false;
+
+		if (!formInput.name) {
+			setError('Please enter your name.');
+			hasError = true;
+		}
+
+		if (!formInput.email) {
+			setError('Please enter your email.');
+			hasError = true;
+		}
+
+		if (!formInput.number) {
+			setError('Please enter your number.');
+			hasError = true;
+		}
+
 		if (!formInput.date) {
 			setError('Please select a date.');
-			return;
+			hasError = true;
 		}
 
 		if (parseInt(formInput.guests) <= 0) {
 			setError('Number of guests must be greater than 0.');
-			return;
+			hasError = true;
 		}
 
-		// Reset error state if there are no validation errors
-		setError('');
+		if (!hasError) {
+			setError(''); // Reset error state if there are no validation errors
+		}
+
+		return !hasError; // Return true if there are no validation errors
 	};
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
+	const submitForm = (event) => {
+		event.preventDefault(); // Prevent form submission and page reload
+		const isFormValid = validateForm();
 
-		handleError();
+		if (isFormValid) {
+			const isSuccess = submitAPI(formInput); // Assuming submitAPI returns true on success
+			if (isSuccess) {
+				// Navigate to the booking confirmation page
+				navigate('/confirmation');
+			} else {
+				setError('Submission failed. Please try again.'); // Display error message for submission failure
+			}
+		}
 	};
 
 	return (
 		<div className="form-container">
-			<form
-				onSubmit={handleSubmit}
-				style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
-			>
+			<form onSubmit={submitForm}>
+				<div className="form-field">
+					<label htmlFor="name">Full Name</label>
+					<input
+						type="text"
+						id="name"
+						value={formInput.name}
+						onChange={handleNameChange}
+						aria-label="Full Name"
+						required
+					/>
+				</div>
+				<div className="form-field">
+					<label htmlFor="email">Email Address</label>
+					<input
+						type="email"
+						id="email"
+						value={formInput.email}
+						onChange={handleEmailChange}
+						aria-labelledby="email"
+						required
+					/>
+				</div>
+				<div className="form-field">
+					<label htmlFor="number">Phone Number</label>
+					<input
+						type="number"
+						id="number"
+						value={formInput.number}
+						onChange={handleNumberChange}
+						required
+					/>
+				</div>
 				<div className="form-field">
 					<label htmlFor="res-date">Choose date</label>
 					<input
@@ -61,15 +141,16 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
 						id="res-date"
 						value={formInput.date}
 						onChange={handleDateChange}
+						required
 					/>
 				</div>
 
 				<div className="form-field">
 					<label htmlFor="res-time">Choose time</label>
 					<select
-							id="res-time"
-                            value={formInput.time}
-                            onChange={handleTimeChange}
+						id="res-time"
+						value={formInput.time}
+						onChange={handleTimeChange}
 					>
 						{availableTimes.map((time) => (
 							<option key={time}>{time}</option>
@@ -86,25 +167,39 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
 						id="guests"
 						value={formInput.guests}
 						onChange={handleGuestsChange}
+						required
 					/>
 				</div>
 				<div className="form-field">
 					<label htmlFor="occasion">Occasion</label>
-					<select
+					<input
+						list="occasions"
 						id="occasion"
 						value={formInput.occasion}
 						onChange={handleOccasionChange}
-					>
-						<option>Birthday</option>
-						<option>Anniversary</option>
-					</select>
+						required
+					/>
+					<datalist id="occasions">
+						<option value="Birthday" />
+						<option value="Anniversary" />
+						<option value="Engagement" />
+						<option value="Party" />
+					</datalist>
+				</div>
+
+				<div className="form-field">
+					<label htmlFor="comments">Comments</label>
+					<textarea
+						id="comments"
+						rows={4}
+						cols={50}
+						placeholder="Additional Comments"
+						value={formInput.comments}
+						onChange={handleCommentsChange}
+					></textarea>
 				</div>
 				{error && <p className="error-message">{error}</p>}
-				<input
-					className="submit-button"
-					type="submit"
-					value="Submit"
-				/>
+				<input className="submit-button" type="submit" value="Submit" />
 			</form>
 		</div>
 	);

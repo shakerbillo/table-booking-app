@@ -1,8 +1,8 @@
 import React from 'react';
-import shaker from '../../../assets/images/shaker.jpeg';
-import emma from '../../../assets/images/shaker.jpeg';
-import emman from '../../../assets/images/shaker.jpeg';
-import bill from '../../../assets/images/shaker.jpeg';
+import shaker from '../../../assets/images/2Pac.JPG';
+import emma from '../../../assets/images/2Pac.JPG';
+import emman from '../../../assets/images/2Pac.JPG';
+import bill from '../../../assets/images/2Pac.JPG';
 import './Testimonial.css';
 
 const Testimonials = () => {

@@ -7,6 +7,12 @@
     margin: 0 auto;
     padding: 20px;
   }
+  form{ 
+    display: grid;
+     max-width: 250px; 
+     
+     gap: 20px;
+  }
   
   .form-field {
     display: grid;
@@ -19,6 +25,8 @@
   
   input[type="date"],
   input[type="number"],
+  input[type="email"],
+  input[type="text"],
   select {
     width: 100%;
     padding: 8px;

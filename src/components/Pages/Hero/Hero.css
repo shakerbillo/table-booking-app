@@ -1,25 +1,25 @@
 .hero-container {
 	font-family: 'Markazi Text', 'Karla', serif;
-    background-color: #495e57;
-    color: #fff;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 1.25rem 5rem 0 10rem;
-    margin-top: -1.4rem;
+	background-color: #495e57;
+	color: #fff;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 1.25rem 5rem 0 10rem;
+	margin-top: -1.4rem;
 }
 
 .text-container {
-	
 	width: 50%;
 	padding: 2rem;
 }
 
 .text-container > h1 {
 	color: #f4ce14;
-    font-size: 3rem;
-    margin-top: 0rem;
-    margin-bottom: -3rem;
+	font-size: 3rem;
+	margin-top: 0rem;
+	margin-bottom: -3rem;
 }
+
 .text-container > h2 {
 	font-size: 2.5rem;
 	margin-top: 3rem;
@@ -27,7 +27,7 @@
 
 .text-container p {
 	margin-top: -2rem;
-    margin-top: 1rem;
+	margin-top: 1rem;
 }
 
 .action-button {
@@ -37,7 +37,6 @@
 	border-radius: 16rem;
 	font-family: 'Karla';
 	font-size: 2rem;
-    
 }
 
 .action-button:hover {
@@ -55,4 +54,52 @@
 	border-radius: 20px;
 	padding: 10px;
 	margin: 20px;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 768px) {
+	.hero-container {
+		grid-template-columns: 1fr;
+		padding: 1.25rem;
+	}
+
+	.text-container {
+		width: 100%;
+	}
+
+	.hero-img > img {
+		width: 250px;
+		height: 250px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.hero-container {
+		padding: 1rem;
+	}
+
+	.text-container {
+		padding: 1rem;
+	}
+
+	.text-container > h1 {
+		font-size: 2.2rem;
+		margin-top: 0rem;
+		margin-bottom: -2rem;
+	}
+
+	.text-container > h2 {
+		font-size: 1.8rem;
+		margin-bottom: 2rem;
+	}
+
+	.action-button {
+		font-size: 1.5rem;
+	}
+
+	.hero-img > img {
+		width: 200px;
+		height: 200px;
+	}
 }

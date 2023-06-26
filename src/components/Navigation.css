@@ -1,31 +1,58 @@
-
 .nav {
-    display: flex;
-    align-items: center;
-    justify-content: center
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin: 40px;
+  height: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0 5px;
+  color: #f4ce14;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links:hover {
+  background-color: #495e57;
+  color: white;
+}
+
+.nav-links:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* Media queries for responsive design */
+
+/* Small devices (up to 576px) */
+@media (max-width: 576px) {
+  .nav {
+    flex-wrap: wrap;
   }
-  
-  .logo {
-    margin: 40px;
-    height: 40px;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0 5px;
-    color: #f4ce14;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-links:hover {
-    background-color: #495e57;
-    color: white;
-  }
-  
+
   .nav-links:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
+}
+
+/* Medium devices (577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-links:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+
