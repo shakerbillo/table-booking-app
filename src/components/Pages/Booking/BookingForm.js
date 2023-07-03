@@ -172,19 +172,17 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
 				</div>
 				<div className="form-field">
 					<label htmlFor="occasion">Occasion</label>
-					<input
-						list="occasions"
+					<select
 						id="occasion"
 						value={formInput.occasion}
 						onChange={handleOccasionChange}
 						required
-					/>
-					<datalist id="occasions">
-						<option value="Birthday" />
-						<option value="Anniversary" />
-						<option value="Engagement" />
-						<option value="Party" />
-					</datalist>
+					>
+						<option>Birthday</option>
+						<option>Anniversary</option>
+						<option>Engagement</option>
+						<option>Party</option>
+					</select>
 				</div>
 
 				<div className="form-field">
