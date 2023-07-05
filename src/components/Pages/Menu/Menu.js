@@ -1,8 +1,11 @@
 import React from 'react'
+import Specials from '../Specials/Specials';
 
 const Menu = () => {
   return (
-    <div>Menu</div>
+    <>
+      <Specials/>
+    </>
   )
 }
 

@@ -1,8 +1,12 @@
 import React from 'react'
+import About from '../About/About';
+
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <>
+      <About/>
+    </>
   )
 }
 

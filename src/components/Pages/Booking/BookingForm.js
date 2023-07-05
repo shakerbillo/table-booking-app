@@ -197,7 +197,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
 					></textarea>
 				</div>
 				{error && <p className="error-message">{error}</p>}
-				<input className="submit-button" type="submit" value="Submit" />
+				<input className="booking-button" type="submit" value="Submit" />
 			</form>
 		</div>
 	);

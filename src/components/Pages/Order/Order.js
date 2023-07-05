@@ -1,8 +1,11 @@
 import React from 'react'
+import Specials from '../Specials/Specials'
 
 const Order = () => {
   return (
-    <div>Order</div>
+    <div>
+      <Specials/>
+    </div>
   )
 }
 
